@@ -3,6 +3,7 @@ import api.ApiUser;
 import api.ApiGeneratorUser;
 import api.Credentials;
 import api.User;
+import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import webmanager.BrowserSelect;
@@ -10,19 +11,19 @@ import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 
+
 public class StartStopTest {
     public static final User API_USER = ApiGeneratorUser.getUser();
-    public WebDriver driver;
     public ApiUser apiUser;
 
     @Before
     @Step("Открыть страницу")
     public void setUp() {
         //Указать chrome or yandex
-        driver = BrowserSelect.getDriver("yandex");
-        driver.get(ApiClient.BASE_URL);
+        BrowserSelect.setDriver("yandex");
         apiUser = new ApiUser();
         apiUser.createUser(API_USER);
+
     }
 
     @After
@@ -33,6 +34,6 @@ public class StartStopTest {
         if (response.body().jsonPath().getString("accessToken") != null) {
             apiUser.delete(response);
         }
-        driver.quit();
+        Selenide.closeWindow();
     }
 }
