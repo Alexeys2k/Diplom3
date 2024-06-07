@@ -1,0 +1,13 @@
+api\ApiUser.class
+object\PageSignUp.class
+object\PagePasswordReset.class
+object\PageProfile.class
+api\ApiClient.class
+webmanager\ValueForTest.class
+object\PageSignIn.class
+api\Credentials.class
+object\PageMain.class
+org\example\Main.class
+webmanager\BrowserSelect.class
+api\ApiGeneratorUser.class
+api\User.class
