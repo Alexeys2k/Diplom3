@@ -121,27 +121,6 @@ public class PageMain {
         return sectionIngredients.getText().contentEquals("Начинки");
     }
 
-    @Step("Скрол до - Булки")
-    public PageMain scrollToBunsHeader() {
-        constructorContainer.click();
-        bunsHeader.scrollIntoView(false);
-        return this;
-    }
-
-    @Step("Скрол до - Соусы")
-    public PageMain scrollToSaucesHeader() {
-        constructorContainer.click();
-        sauceHeader.scrollIntoView(false);
-        return this;
-    }
-
-    @Step("Скрол до - Начинки")
-    public PageMain scrollToFillingsHeader() {
-        constructorContainer.click();
-        fillingsHeader.scrollIntoView(false);
-        return this;
-    }
-
     @Step("Проверка - Сообщения об ошибке")
     public boolean isErrorMessageExist() {
         return errorMessage.exists();
